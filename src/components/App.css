@@ -3,10 +3,10 @@
   display: flex;
   background-color: #282c34;
   flex-direction: column;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  min-height: 100vh;
 }
 
 .logo {
@@ -22,12 +22,14 @@
   justify-content: center;
   gap: 350px;
   margin-bottom: 20px;
+  justify-self: center;
+  margin-top: auto;
 }
 
 .app__restart-button {
   height: 50px;
   width: 50px;
-  box-shadow: 0px 7px 0px #333842;
+  box-shadow: 0px 5px 0px #333842;
   border: none;
   border-radius: 10px;
   background-image: url("../images/restart-arrow.svg"); 
@@ -35,6 +37,7 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.1s linear;
+  background-color: #aebbd2;
 }
 
 .app__restart-button:hover {

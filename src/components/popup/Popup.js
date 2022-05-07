@@ -9,7 +9,7 @@ const Popup = (props) => {
         <button className="popup__button">
           {props.button1Text.toUpperCase()}
         </button>
-        <button className="popup__button">
+        <button className="popup__button" onClick={props.onClose}>
           {props.button2Text.toUpperCase()}
         </button>
       </div>

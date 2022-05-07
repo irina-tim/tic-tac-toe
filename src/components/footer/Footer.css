@@ -1,4 +1,20 @@
 .footer {
-    margin-top: 30px;
-    color: white;
+  margin-top: auto;
+  margin-bottom: 20px;
+  color: #aebbd2;
+  cursor: default;
+}
+
+.footer__link {
+  color: #aebbd2;
+  text-decoration: none;
+  transition: all 0.1s linear;
+}
+
+.footer__link:hover {
+  color: #fac863;
+}
+
+.footer:visited {
+  color: #aebbd2;
 }

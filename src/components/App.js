@@ -5,9 +5,15 @@ import Footer from "./footer/Footer";
 import React, { useState } from "react";
 
 function App() {
-  const [isRestartPopupOpened, setIsRestartPopupOpened] = useState(false);
+  const [isRestartPopupOpened, setIsRestartPopupOpened] = useState(true);
   const [isGameOverPopupOpened, setIsGameOverPopupOpened] = useState(false);
   const [isСhoicePopupOpened, setIsСhoicePopupOpened] = useState(false);
+
+  function closeAllPopups() {
+    setIsRestartPopupOpened(false);
+    setIsGameOverPopupOpened(false);
+    setIsСhoicePopupOpened(false);
+  }
 
   return (
     <>
@@ -24,18 +30,21 @@ function App() {
         button1Text="Yes"
         button2Text="No"
         isOpened={isRestartPopupOpened}
+        onClose={closeAllPopups}
       />
       <Popup //Game over popup
         title="You won!"
-        button1Text="Quit"
-        button2Text="Play again"
+        button1Text="Play again"
+        button2Text="Quit"
         isOpened={isGameOverPopupOpened}
+        onClose={closeAllPopups}
       />
       <Popup //Choice popup
         title="X or O?"
         button1Text="Choose X"
         button2Text="Choose O"
         isOpened={isСhoicePopupOpened}
+        onClose={closeAllPopups}
       />
     </>
   );
