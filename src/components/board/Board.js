@@ -7,7 +7,7 @@ const Board = (props) => {
   return (
     <div className="Board">
       {[...Array(9)].map((_, i) => (
-        <Cell key={i} value={i + 1} />
+        <Cell key={i} value={i % 2 === 0 ? "x" : "o"} />
       ))}
     </div>
   );

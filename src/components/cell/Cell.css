@@ -1,10 +1,14 @@
 .Cell {
-    border: 5px solid #282c34;
+    /*border: 5px solid #282c34;*/
 	font-size: 100px;
     color: white;
-    background-color: #49505f;
+    background-color: #444b59;
     border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 7px 0px #20232a;
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
 }

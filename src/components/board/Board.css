@@ -3,4 +3,5 @@
     height: 500px;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 15px;
 }
