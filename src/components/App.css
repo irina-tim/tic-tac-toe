@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
   display: flex;
   background-color: #282c34;
@@ -9,8 +9,34 @@
   z-index: 1;
 }
 
-.App-header {
-  font-size: 70px;
-  color: white;
-  margin-bottom: 30px;
+.logo {
+  height: 50px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-image: url("../images/logo.svg");
+}
+
+.app__container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 350px;
+  margin-bottom: 20px;
+}
+
+.app__restart-button {
+  height: 50px;
+  width: 50px;
+  box-shadow: 0px 7px 0px #333842;
+  border: none;
+  border-radius: 10px;
+  background-image: url("../images/restart-arrow.svg"); 
+  background-size: 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.1s linear;
+}
+
+.app__restart-button:hover {
+  background-color: #fac863;
 }

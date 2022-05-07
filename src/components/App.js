@@ -1,6 +1,7 @@
 import "./App.css";
 import Board from "./board/Board";
 import Popup from "./popup/Popup";
+import Footer from "./footer/Footer";
 import React, { useState } from "react";
 
 function App() {
@@ -10,9 +11,13 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <header className="App-header">Tic Tac Toe</header>
+      <div className="app">
+        <div className="app__container">
+          <div className="logo"></div>
+          <button className="app__restart-button"></button>
+        </div>
         <Board />
+        <Footer />
       </div>
       <Popup //Restart popup
         title="Restart game?"
