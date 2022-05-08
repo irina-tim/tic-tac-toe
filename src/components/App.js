@@ -2,15 +2,16 @@ import "./App.css";
 import Board from "./board/Board";
 import Popup from "./popup/Popup";
 import Footer from "./footer/Footer";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const cleanBoard = Array(9).fill("");
   const [isRestartPopupOpened, setIsRestartPopupOpened] = useState(false);
   const [isGameOverPopupOpened, setIsGameOverPopupOpened] = useState(false);
-  const [isСhoicePopupOpened, setIsСhoicePopupOpened] = useState(false);
+  const [isСhoicePopupOpened, setIsСhoicePopupOpened] = useState(true);
   const [choice, setChoice] = useState("x");
   const [board, setBoard] = useState(cleanBoard);
+  const [pcTurn, setPcTurn] = useState(0);
 
   function closeAllPopups() {
     setIsRestartPopupOpened(false);
@@ -41,9 +42,30 @@ function App() {
   }
 
   function handleCellClick(position) {
+    turn(position, choice);
+    setPcTurn(pcTurn + 1);
+  }
+
+  // Make a PC turn only when pcTurn variable
+  // is updated (after human turn), and do not
+  // at mounting (when its initial value is 0)
+  useEffect(() => {
+    if (pcTurn !== 0) {
+      console.log(board);
+      doPcTurn();
+    }
+  }, [pcTurn]);
+
+  function turn(position, sign) {
     const boardCopy = [...board];
-    boardCopy[position] = choice;
+    boardCopy[position] = sign;
     setBoard(boardCopy);
+  }
+
+  function doPcTurn() {
+    const sign = choice === "x" ? "o" : "x";
+    const i = Math.floor(Math.random() * 9);
+    turn(i, sign);
   }
 
   return (
