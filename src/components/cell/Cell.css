@@ -1,5 +1,5 @@
-.Cell {
-    /*border: 5px solid #282c34;*/
+.cell {
+    border: none;
 	font-size: 100px;
     color: white;
     background-color: #444b59;
@@ -11,4 +11,5 @@
     background-size: 55%;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
 }

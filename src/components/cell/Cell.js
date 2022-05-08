@@ -4,13 +4,21 @@ import x from "../../images/x.svg";
 import o from "../../images/o.svg";
 
 const Cell = (props) => {
+  function handleClick(e) {
+    props.onClick(e.target.id);
+  }
   return (
-    <div
-      className="Cell"
+    <button
+      className="cell"
       style={{
-        backgroundImage: "url(" + (props.value === "o" ? o : x) + ")",
+        backgroundImage:
+          "url(" +
+          (props.value === "o" ? o : props.value === "x" ? x : "") +
+          ")",
       }}
-    ></div>
+      onClick={handleClick}
+      id={props.id}
+    ></button>
   );
 };
 

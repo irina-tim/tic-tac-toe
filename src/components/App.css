@@ -38,6 +38,7 @@
   background-repeat: no-repeat;
   transition: all 0.1s linear;
   background-color: #aebbd2;
+  cursor: pointer;
 }
 
 .app__restart-button:hover {

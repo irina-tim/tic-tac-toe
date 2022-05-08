@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Board.css";
 import Cell from "../cell/Cell";
 
 const Board = (props) => {
-  //const [cells, setCells] = useState([]);
+  function handleCellClick(id) {
+    props.onCellClick(id);
+  }
   return (
     <div className="Board">
-      {[...Array(9)].map((_, i) => (
-        <Cell key={i} value={i % 2 === 0 ? "x" : "o"} />
+      {props.value.map((el, i) => (
+        <Cell key={i} value={el} id={i} onClick={handleCellClick} />
       ))}
     </div>
   );
