@@ -12,6 +12,17 @@ function App() {
   const [choice, setChoice] = useState("x");
   const [board, setBoard] = useState(cleanBoard);
   const [pcTurn, setPcTurn] = useState(0);
+  const winningСombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  const [isWin, setIsWin] = useState(false);
 
   function closeAllPopups() {
     setIsRestartPopupOpened(false);
@@ -50,11 +61,25 @@ function App() {
   // is updated (after human turn), and do not
   // at mounting (when its initial value is 0)
   useEffect(() => {
-    if (pcTurn !== 0) {
-      console.log(board);
-      doPcTurn();
-    }
+    pcTurn !== 0 && doPcTurn();
   }, [pcTurn]);
+
+  // Check board after each update if
+  // there are winning combinations
+  useEffect(() => {
+    for (let i = 0; i < winningСombos.length; i++) {
+      if (
+        board[winningСombos[i][0]] !== "" &&
+        board[winningСombos[i][0]] === board[winningСombos[i][1]] &&
+        board[winningСombos[i][1]] === board[winningСombos[i][2]]
+      ) {
+        board[winningСombos[i][0]] === choice
+          ? setIsWin(true)
+          : setIsWin(false);
+        setIsGameOverPopupOpened(true);
+      }
+    }
+  }, [board]);
 
   function turn(position, sign) {
     const boardCopy = [...board];
@@ -66,6 +91,14 @@ function App() {
     const sign = choice === "x" ? "o" : "x";
     const i = Math.floor(Math.random() * 9);
     turn(i, sign);
+  }
+
+  function handleGameOver(button) {
+    if (button === "b1") {
+      clearBoard();
+      setIsСhoicePopupOpened(true);
+    }
+    closeAllPopups();
   }
 
   return (
@@ -90,11 +123,12 @@ function App() {
         onButtonClick={handleRestart}
       />
       <Popup //Game over popup
-        title="You won!"
+        title={`You ${isWin ? "win!" : "lost :("}`}
         button1Text="Play again"
         button2Text="Quit"
         isOpened={isGameOverPopupOpened}
         onClose={closeAllPopups}
+        onButtonClick={handleGameOver}
       />
       <Popup //Choice popup
         title="X or O?"
