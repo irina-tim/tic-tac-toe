@@ -44,6 +44,7 @@ function App() {
   }
 
   function handleRestart(button) {
+    closeAllPopups();
     if (button === "b1") {
       clearBoard();
       setIsСhoicePopupOpened(true);
@@ -94,11 +95,11 @@ function App() {
   }
 
   function handleGameOver(button) {
+    closeAllPopups();
     if (button === "b1") {
       clearBoard();
       setIsСhoicePopupOpened(true);
     }
-    closeAllPopups();
   }
 
   return (
