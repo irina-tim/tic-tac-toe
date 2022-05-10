@@ -7,7 +7,7 @@ const Board = (props) => {
     props.onCellClick(id);
   }
   return (
-    <div className="Board">
+    <div className="board">
       {props.value.map((el, i) => (
         <Cell key={i} value={el} id={i} onClick={handleCellClick} />
       ))}

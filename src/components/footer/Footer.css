@@ -18,3 +18,10 @@
 .footer:visited {
   color: #aebbd2;
 }
+
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
+  .footer {
+    margin-bottom: 5px;
+    font-size: 15x;
+  }
+}
