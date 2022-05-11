@@ -52,6 +52,7 @@ function App() {
     if (button === "b1") {
       clearBoard();
       setIsСhoicePopupOpened(true);
+      setPcTurn(0);
     } else {
       closeAllPopups();
     }
