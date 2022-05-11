@@ -31,7 +31,11 @@ function App() {
   }
 
   function handleChoice(button) {
-    button === "b1" ? setChoice("x") : setChoice("o");
+    if (button === "b1") setChoice("x");
+    else {
+      setChoice("o");
+      setPcTurn(pcTurn + 1);
+    }
     closeAllPopups();
   }
 
@@ -59,8 +63,8 @@ function App() {
   }
 
   // Make a PC turn only when pcTurn variable
-  // is updated (after human turn), and do not
-  // at mounting (when its initial value is 0)
+  // is updated (after human turn or if user
+  // selected "o")
   useEffect(() => {
     pcTurn !== 0 && doPcTurn();
   }, [pcTurn]);
@@ -99,8 +103,15 @@ function App() {
   function doPcTurn() {
     const humanPlayer = choice;
     const pcPlayer = choice === "x" ? "o" : "x";
-    const bestChoice = minimax(board, pcPlayer);
-    turn(bestChoice.index, pcPlayer);
+
+    // If it is PC's turn and it is the 1st turn,
+    // move "x" to a random cell, else call minimax
+    if (pcPlayer === "x" && pcTurn === 1) {
+      turn(~~(Math.random() * 9), pcPlayer);
+    } else {
+      const bestChoice = minimax(board, pcPlayer);
+      turn(bestChoice.index, pcPlayer);
+    }
 
     // MINIMAX ALGORITHM
     function minimax(newBoard, player) {
