@@ -59,8 +59,10 @@ function App() {
   }
 
   function handleCellClick(position) {
-    turn(position, choice);
-    setPcTurn(pcTurn + 1);
+    if (board[position] === +board[position]) {
+      turn(position, choice);
+      setPcTurn(pcTurn + 1);
+    }
   }
 
   // Make a PC turn only when pcTurn variable
