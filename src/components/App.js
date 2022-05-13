@@ -3,6 +3,7 @@ import Board from "./board/Board";
 import Popup from "./popup/Popup";
 import Footer from "./footer/Footer";
 import React, { useState, useEffect } from "react";
+import { debounce } from "lodash";
 
 function App() {
   const cleanBoard = [...Array(9).keys()];
@@ -219,7 +220,7 @@ function App() {
         button2Text="Choose O"
         isOpened={isСhoicePopupOpened}
         onClose={closeAllPopups}
-        onButtonClick={handleChoice}
+        onButtonClick={debounce(handleChoice, 250)}
       />
     </>
   );
