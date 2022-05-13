@@ -17,7 +17,7 @@
 
 1. Choose X or O. Player X starts the game. You are playing vs AI.
 2. Click on the cell you want to place symbol.
-3. The result of the game is displayed at the end of the game
+3. The result of the game is displayed at the end of the game.
 
 ![image](https://user-images.githubusercontent.com/94538863/167888075-84545d6f-8637-48fc-b200-ee89c39511b0.png)
 
